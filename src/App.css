@@ -1,38 +1,319 @@
-.App {
-  text-align: center;
+body{
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(circle, rgba(31,55,86,1) 0%, rgba(20,21,57,1) 100%);
+
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  min-height: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+
+
+  margin-top: 10px;
+
+
+  border: 2px rgb(121, 121, 121) solid;
+
+  border-radius: 10px;
+}
+
+.headline{
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+}
+
+.headline-text{  font-weight: 700;
+
+  color: white;
+
+  width: 30vw;
+  min-width: 200px;
+
+  text-transform: uppercase;
+
+  font-size: 2.5rem;
+
+  margin: 0;
+  line-height: 2.2rem;
+}
+
+.score-container{
+  margin-left: auto;
+
+  text-align: center;
+
+  background-color: white;
+
+  border-radius: 10px;
+
+  height: 50%;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
+.score-text{  font-weight: 600;
+
+  font-size: 1rem;
+
+  color: hsl(229, 91%, 48%);
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+
+}
+
+.score-number{  font-weight: 600;
+
+  font-size: 4rem;
+  line-height: 3.5rem;
+
+  color: black;
+
+  text-transform: uppercase;
+
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.game-buttons-wrapper{
+
+  width: 400px;
+  height: 400px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 30px;
+
+}
+
+.game-bg{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.game-button{
+  border-radius: 100%;
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent;
+  width: fit-content;
+  height: fit-content;
+  background-color: #ffffff;
+  background-origin: border-box;
+  transition: 0.2s;
+  cursor: pointer;
+
+}
+
+.choose .game-button{
+  position: absolute;
+}
+
+.choose .game-button:hover {
+  box-shadow: 1px 1px 10px 5px white;
+}
+
+.icon-bg{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  padding: 10px;
+  box-shadow: inset 0px 8px 0px 0px hsl(0, 0%, 80%);
+
+}
+.paper {
+  background-image: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  box-shadow: 0px 7px 0px 0px hsl(230, 89%, 45%);
+}
+
+.choose .paper {
+  top: 0;
+  left: 0;
+}
+.rock{
+
+  background-image: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  box-shadow: 0px 7px 0px 0px hsl(349, 70%, 45%);
+}
+.choose .rock {
+  bottom: 10px;
+  left: 120px;
+}
+.scissors {
+  background-image: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  box-shadow: 0px 7px 0px 0px hsl(40, 84%, 45%);
+  top: 0;
+  right: 0;
+}
+
+.choose .scissors {
+  top: 0;
+  right: 0;
+}
+
+.game-start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.game-start.desktop {
+  display: flex;
+}
+
+.game-start.mobile {
+  display: none;
+}
+.game-start .title {
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+}
+
+.game-start .icon-bg {
+  padding: 60px;
+}
+
+.game-start .icon-bg img {
+  width: 100px;
+}
+
+.game-start .game-button {
+  border-width: 30px;
+}
+.players {
+  padding-bottom: 10px;
+  z-index: -1;
+}
+.game-start .title {
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+
+  color: white;
+  text-transform: uppercase;
+}
+
+
+.reset {
+  background-color: #ffffff;
+  color: var(--dark-text);
+  border-radius: 10px;
+  padding: 10px 40px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: 0.2s;
+
+  font-weight: 600;
+}
+
+.reset:hover {
+  box-shadow: 1px 1px 10px 5px white;
+}
+
+.reset.lose {
+  color: hsl(349, 70%, 56%);
+}
+
+.reset.win {
+  color: var(--dark-text);
+}
+
+.results {
+  margin: 0 100px;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-name: grow;
+}
+.results h1{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes grow {
   from {
-    transform: rotate(0deg);
+    transform: scale(0.5);
   }
   to {
-    transform: rotate(360deg);
+    transform: scale(1);
+  }
+}
+
+
+
+.footer{
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.rules-text{  font-weight: 300;
+
+  font-size: 1.5rem;
+
+  color: white;
+
+  text-transform: uppercase;
+
+  position: absolute;
+
+  bottom: 20px;
+  right: 20px;
+
+  margin-bottom: 50px;
+  margin-right: 50px;
+
+  padding: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.rules{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .header{
+    width: 95vw;
+  }
+  .score-container{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .rules-text{
+    right: 20vw;
   }
 }
